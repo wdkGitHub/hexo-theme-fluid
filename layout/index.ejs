@@ -35,9 +35,17 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
       </a>
 
       <div class="index-btm post-metas">
-        <% if (theme.index.post_meta.date) { %>
+        <% if (theme.index.post_meta.update) { %>
           <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
+            <i class="iconfont icon-date">&nbsp;更新于</i>
+            <time datetime="<%= full_date(post.update, 'YYYY-MM-DD HH:mm') %>" pubdate>
+              <%- date(post.update, config.date_format) %>
+            </time>
+          </div>
+        <% } %>
+         <% if (theme.index.post_meta.date) { %>
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date">&nbsp;创建于</i>
             <time datetime="<%= full_date(post.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
               <%- date(post.date, config.date_format) %>
             </time>
